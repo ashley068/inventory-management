@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import vehicleReducer from "./vehicleManagement/reducer";
 const reducers = {
-  vehicleManagement: vehicleReducer,
+  vehicle: vehicleReducer,
 };
 
 const rootReducer = combineReducers(reducers);
