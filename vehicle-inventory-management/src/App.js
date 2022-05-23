@@ -5,14 +5,14 @@ import VehicleItem from "./component/VehicleItem";
 import "./App.css";
 
 const mapStateToProps = (state) => ({ vehicleItems: state.vehicle.items });
-const mapDispatchToProps = { deleteItem: vehicleManangeActions.deleteItem };
-const App = ({ vehicleItems, deleteItem }) => {
-  // console.log(vehicleItems);
+//move to item index
+
+const App = ({ vehicleItems }) => {
   return (
     <div className="App">
       <div>
         <h2>Inventory</h2>
-        <h4>Found Vehicles</h4>
+        <h4>Found {vehicleItems.length} Vehicles</h4>
         <SearchBar />
       </div>
 
@@ -33,11 +33,12 @@ const App = ({ vehicleItems, deleteItem }) => {
                 key={item.id}
                 order={index}
                 id={item.id}
-                name={item.name}
+                manufacturer={item.manufacturer}
                 type={item.type}
                 fuel={item.fuel}
                 color={item.color}
-                deleteItem={deleteItem}
+                // deleteItem={deleteItem}
+                // updateItem={updateItem}
               />
             );
           })}
@@ -47,4 +48,4 @@ const App = ({ vehicleItems, deleteItem }) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);
