@@ -1,3 +1,4 @@
+import { SEARCH_VEHICLE, DELETE_VEHICLE, UPDATE_VEHICLE } from "./constants";
 import { faker } from "@faker-js/faker";
 //faker data generate
 const vehicle = faker.vehicle;
@@ -27,7 +28,7 @@ const initialState = {
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SEARCH_VEHICLE":
+    case SEARCH_VEHICLE:
       const foundVehicles = vehicleData.filter(
         (item) => item.manufacturer === action.payload
       );
@@ -36,7 +37,8 @@ const reducer = (state = initialState, action) => {
         items: foundVehicles,
       };
 
-    case "DELETE_VEHICLE":
+    //delete item
+    case DELETE_VEHICLE:
       const updateVehicleItems = state.items.filter(
         (item) => item.id !== action.payload.id
       );
@@ -45,7 +47,8 @@ const reducer = (state = initialState, action) => {
         items: [...updateVehicleItems],
       };
 
-    case "UPDATE_VEHICLE":
+    //update item
+    case UPDATE_VEHICLE:
       const itemIndex = state.items.findIndex(
         (item) => item.id === action.payload.id
       );

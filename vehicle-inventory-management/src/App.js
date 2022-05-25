@@ -5,7 +5,6 @@ import VehicleItem from "./component/VehicleItem";
 import "./App.css";
 
 const mapStateToProps = (state) => ({ vehicleItems: state.vehicle.items });
-//move to item index
 
 const App = ({ vehicleItems }) => {
   return (
@@ -37,8 +36,6 @@ const App = ({ vehicleItems }) => {
                 type={item.type}
                 fuel={item.fuel}
                 color={item.color}
-                // deleteItem={deleteItem}
-                // updateItem={updateItem}
               />
             );
           })}
